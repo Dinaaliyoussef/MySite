@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails du Post</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .post-details {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .post-title {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .post-info {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .post-content {
+            margin-top: 20px;
+        }
+        img.post-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="post-details">
+            <h1 class="post-title">{{ post.title }}</h1>
+            <p class="post-info">Slug: {{ post.slug }}</p>
+            <p class="post-info">Auteur: {{ post.author }}</p>
+            <p class="post-info">Modifier En: {{ post.updated_on }}</p>
+            <hr>
+            <div class="post-content">
+                <p>{{ post.content }}</p>
+            </div>
+            <p class="post-info">Créer en: {{ post.created_on }}</p>
+            <p class="post-info">Status: {{ post.get_status_display }}</p>
+            {% if post.image %}
+                <img src='/media/{{ post.image }}' alt="Post Image" class="post-image">
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

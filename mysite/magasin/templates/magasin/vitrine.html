@@ -1,0 +1,23 @@
+{% extends 'magasin/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div style="overflow:scroll; border:#000000 1px solid;">
+        <table>
+            <tr>
+                {% for article in list %}
+                <td>
+                    <img src="/media/{{article.Img}}" width="180px" height="150px">
+
+                    <figcaption class="figure-caption">
+                        {{article.libelle}}
+                    </figcaption>
+
+                    <p> {{article.prix}} DT. </p>
+                </td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

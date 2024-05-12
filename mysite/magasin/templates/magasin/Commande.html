@@ -1,0 +1,43 @@
+{% extends 'magasin/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="mb-4">Ajouter une commande</h1>
+            <form method="POST" action="{% url 'nouveauCde' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h1 class="mb-4">Liste de commandes</h1>
+            {% if commandes %}
+                <div class="list-group">
+                    {% for cmd in commandes %}
+                        <div class="list-group-item list-group-item-action mb-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">Commande du {{ cmd.dateCde }}</h5>
+                                <span class="badge bg-secondary">Total: {{ cmd.calc }}</span>
+                            </div>
+                            <div class="mt-2">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <strong>Produit:</strong> {{ cmd.produits.all|join:', ' }}
+                                    </li>
+                                    <li class="list-group-item">
+                                        <strong>Quantité:</strong> {{ cmd.totalCde }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="lead">Aucune commande disponible.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

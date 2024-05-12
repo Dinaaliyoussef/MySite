@@ -1,0 +1,29 @@
+body {
+    background-color: #909090;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    background-color: #343a40; /* Dark navbar background */
+}
+
+.navbar-brand {
+    color: #fff; /* White navbar brand color */
+    font-weight: bold; /* Bold font for navbar brand */
+}
+
+.nav-link {
+    color: #fff; /* White navbar link color */
+}
+
+.nav-link:hover {
+    color: #ccc; /* Light grey on hover for navbar links */
+}
+
+.faq-section {
+    margin-top: 40px; /* Spacing above the FAQ section */
+}
+
+.faq-question {
+    font-weight: bold; /* Bold font for FAQ questions */
+}
