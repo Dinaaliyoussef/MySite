@@ -26,10 +26,35 @@
         }
     </style>
 </head>
+<style>
+     .navbar-brand {
+        font-weight: bold;
+        font-size: 25px;
+        margin-left: 15px;
+    }
+    .nav-item {
+        display: flex;
+        margin: 15px;
+        margin-right: 10px;
+        gap: 10px;
+        }
+</style>
 <body>
+    <nav class="navbar bg-body-tertiary">
+        <a class="navbar-brand" href="#">Bienvenue au Blog de notre Site</a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="{% url 'creer_post' %}" class="btn btn-info ml-2">+ Poster</a>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-info" type="submit">Search</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
     <div class="container mt-4">
         <h1>Liste des Posts</h1>
-        <a href="{% url 'creer_post' %}" class="btn btn-primary mb-3">Ajouter un Post</a>
+        
 
         <div class="post-container">
             {% for post in posts %}
